@@ -1,0 +1,32 @@
+[
+  {
+    "caption": "Replacement roofing with warm clay tones",
+    "bg": "linear-gradient(135deg, #7c2d12 0%, #b45309 45%, #f59e0b 100%)",
+    "icon": "M4 17h40L24 5 4 17Zm8 0v10m8-10v10m8-10v10"
+  },
+  {
+    "caption": "Flat roofing finish with clean contemporary lines",
+    "bg": "linear-gradient(135deg, #1f2937 0%, #475569 52%, #94a3b8 100%)",
+    "icon": "M5 20h38M8 20l16-11 16 11M18 20V9m12 11V9"
+  },
+  {
+    "caption": "Repair detail focused on weather protection",
+    "bg": "linear-gradient(135deg, #431407 0%, #9a3412 45%, #fdba74 100%)",
+    "icon": "M6 19h36L24 7 6 19Zm18-12v28"
+  },
+  {
+    "caption": "Textured roofscape inspired by South Yorkshire homes",
+    "bg": "linear-gradient(160deg, #292524 0%, #57534e 50%, #d6d3d1 100%)",
+    "icon": "M5 18h38L24 6 5 18Zm6 0 13-9 13 9"
+  },
+  {
+    "caption": "Modern flat roof upgrade in durable finishes",
+    "bg": "linear-gradient(135deg, #082f49 0%, #0f766e 45%, #99f6e4 100%)",
+    "icon": "M4 21h40M8 21l16-12 16 12M24 9v12"
+  },
+  {
+    "caption": "Roofing craftsmanship shaped by careful detailing",
+    "bg": "linear-gradient(135deg, #451a03 0%, #92400e 48%, #fcd34d 100%)",
+    "icon": "M4 18h40L24 4 4 18Zm10 0v9m10-9v9"
+  }
+]

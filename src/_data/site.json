@@ -1,13 +1,16 @@
 {
-    "name": "Dry Roofs",
-    "sector": "Roofing",
-    "description": "With over 30 years of expertise, Dry Roofs is dedicated to providing top-quality roofing solutions for homes and businesses in South Yorkshire. No matter the size of the project, we bring focus, skill, and attention to detail to deliver exceptional results every time.\r\n\r\nOur comprehensive services include everything from complete roof replacements and flat roof installations, such as GRP, fibreglass, and felt, to minor roof repairs and maintenance. Whether you\u2019re planning a major roofing project or need assistance with smaller repairs, Dry Roofs has you covered.\r\n\r\nWe pride ourselves on delivering reliable, professional service, with all work carried out to the highest standards and backed by a guarantee for your peace of mind. For all your roofing needs, trust Dry Roofs to provide a solution tailored to you.\r\n\r\nReplacement Roofing\r\n\r\nWe specialise in professional roof replacement services, offering durable and high-quality solutions to suit your needs. Whether replacing a worn-out roof or upgrading to a modern design, our experienced team ensures a seamless and reliable service from start to finish.\r\nFlat Roofing\r\n\r\nWe offer expert flat roof replacement services, tailored to your needs. Whether you require firestone, rubber, GRP, fibreglass, or felt roofing, our skilled team delivers durable and professional results. Trust us for a seamless and reliable flat roof upgrade.\r\nRoofing Repairs\r\n\r\nWe provide expert roofing repair services to keep your roof in top condition. From minor leaks to more extensive damage, our skilled team ensures quick, reliable, and cost-effective solutions to protect your home and restore your roof\u2019s integrity.",
-    "pages": [
-        "Home",
-        "About",
-        "Services",
-        "Blog",
-        "Gallery",
-        "Contact"
-    ]
+  "name": "Dry Roofs",
+  "sector": "Roofing",
+  "tagline": "Reliable roofing solutions for homes and businesses across South Yorkshire.",
+  "description": "Dry Roofs provides replacement roofing, flat roofing and repairs for homes and businesses across South Yorkshire, backed by over 30 years of expertise and guaranteed workmanship.",
+  "area": "South Yorkshire",
+  "pages": [
+    "Home",
+    "About",
+    "Services",
+    "Blog",
+    "Gallery",
+    "Contact"
+  ],
+  "url": "https://dryroofs.co.uk"
 }

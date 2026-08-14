@@ -1,15 +1,128 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="bg-stone-50 text-slate-950">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or site.name }}{% if title and title != site.name %} | {{ site.name }}{% endif %}</title>
   <meta name="description" content="{{ description or site.description }}">
-  <title>{{ title }}{% if title != site.name %} | {{ site.name }}{% endif %}</title>
+  <meta property="og:title" content="{{ title or site.name }}{% if title and title != site.name %} | {{ site.name }}{% endif %}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url or '/' }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url or '/' }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23b45309' d='M8 34 32 14l24 20v18H41V38H23v14H8z'/%3E%3Cpath fill='%230c0a09' d='M4 34 32 10l28 24-4 5-24-20L8 39z'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="/assets/css/site.css">
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
-<body class="bg-stone-50 font-sans text-slate-950 antialiased">
-  <header class="border-b border-slate-950/10"><nav class="mx-auto flex max-w-6xl items-center justify-between gap-8 px-6 py-5 lg:px-8" aria-label="Primary"><a href="/" class="text-lg font-semibold">{{ site.name }}</a><a href="/contact/" class="text-sm font-semibold text-teal-700">Contact</a></nav></header>
-  <main>{{ content | safe }}</main>
-  <footer class="border-t border-slate-950/10"><div class="mx-auto max-w-6xl px-6 py-10 text-sm text-slate-600 lg:px-8">&copy; {{ site.name }}</div></footer>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">Skip to content</a>
+  <header class="relative border-b border-stone-200 bg-white/90 backdrop-blur-sm">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-6 py-5">
+        <a href="/" class="inline-flex items-center gap-3 text-slate-950">
+          <span class="inline-flex size-11 items-center justify-center rounded-full bg-brand/10 text-brand" aria-hidden="true">
+            <svg viewBox="0 0 48 48" class="size-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 26h38L24 10 5 26Z"></path>
+              <path d="M12 26v10m12-10v10m12-10v10"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="block font-serif text-2xl leading-none">{{ site.name }}</span>
+            <span class="mt-1 block text-xs font-medium uppercase tracking-[0.22em] text-stone-500">{{ site.sector }} · {{ site.area }}</span>
+          </span>
+        </a>
+        <button type="button" class="inline-flex cursor-pointer items-center justify-center rounded-full border border-stone-300 p-3 text-slate-950 transition hover:border-brand hover:text-brand md:hidden" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false" data-nav-toggle>
+          <svg viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-nav-open-icon aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+          <svg viewBox="0 0 24 24" class="hidden size-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-nav-close-icon aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+        <nav id="site-nav" aria-label="Primary" class="absolute inset-x-0 top-full hidden border-b border-stone-200 bg-white md:static md:block md:border-0 md:bg-transparent">
+          <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 md:flex-row md:items-center md:justify-end md:gap-2 md:px-0 md:py-0">
+            <ul class="flex flex-col gap-1 md:flex-row md:items-center md:gap-1">
+              {% for item in nav %}
+                {% set isActive = (item.url == '/' and page.url == '/') or (item.url != '/' and page.url.startsWith(item.url)) %}
+                <li>
+                  <a href="{{ item.url }}"{% if isActive %} aria-current="page"{% endif %} class="block rounded-full px-4 py-2 text-sm font-semibold {% if isActive %}bg-brand text-white{% else %}text-slate-700 hover:bg-brand/10 hover:text-brand{% endif %}">{{ item.label }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+            <a href="/contact/" class="btn-primary md:ml-3">Get a quote</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">{{ content | safe }}</main>
+
+  <footer class="border-t border-stone-200 bg-slate-950 text-stone-200">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.3fr_0.7fr] lg:px-8">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">{{ site.sector }}</p>
+        <h2 class="mt-4 text-3xl text-white">{{ site.name }}</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-7 text-stone-300">{{ site.tagline }}</p>
+      </div>
+      <div class="grid gap-8 sm:grid-cols-2">
+        <div>
+          <h3 class="text-base text-white">Explore</h3>
+          <ul class="mt-4 space-y-3 text-sm text-stone-300">
+            {% for item in nav %}
+              <li><a href="{{ item.url }}" class="hover:text-white">{{ item.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-base text-white">Coverage</h3>
+          <p class="mt-4 text-sm leading-7 text-stone-300">Homes and businesses across South Yorkshire, with a focus on dependable roofing work, careful detailing and a professional finish.</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-5 text-sm text-stone-400 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <p>© 2026 {{ site.name }}. All rights reserved.</p>
+        <p>Built for clear advice, practical service and straightforward contact.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector("[data-nav-toggle]");
+    const siteNav = document.getElementById("site-nav");
+    const openIcon = document.querySelector("[data-nav-open-icon]");
+    const closeIcon = document.querySelector("[data-nav-close-icon]");
+
+    if (navToggle && siteNav && openIcon && closeIcon) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+        navToggle.setAttribute("aria-expanded", String(!isOpen));
+        siteNav.classList.toggle("hidden", isOpen);
+        openIcon.classList.toggle("hidden", !isOpen);
+        closeIcon.classList.toggle("hidden", isOpen);
+      });
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Dry Roofs",
+      "description": "Dry Roofs provides replacement roofing, flat roofing and repairs for homes and businesses across South Yorkshire, backed by over 30 years of expertise and guaranteed workmanship.",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "South Yorkshire"
+      },
+      "serviceType": ["Replacement roofing", "Flat roofing", "Roofing repairs"]
+    }
+  </script>
 </body>
 </html>
