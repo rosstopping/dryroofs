@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: Our Work
+description: Explore a stylised gallery of Dry Roofs work across replacement roofing, flat roofing and repairs.
+permalink: /gallery/index.html
+---
+<section class="border-b border-stone-200 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-brand">Gallery</p>
+    <h1 class="mt-4 text-5xl text-slate-950">Our Work</h1>
+    <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">A visual snapshot of the kinds of roofing work Dry Roofs undertakes, expressed through art-directed colour, form and roofline-inspired graphics.</p>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+  <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+    {% for item in gallery %}
+      <figure class="group relative overflow-hidden rounded-[1.75rem] shadow-lg aspect-[4/3]">
+        <div class="absolute inset-0" style="background: {{ item.bg }};"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(12,10,9,0.72))]"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <svg viewBox="0 0 48 48" class="size-28 text-white/80 transition duration-300 group-hover:scale-105 motion-reduce:transition-none" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="{{ item.icon }}"></path>
+          </svg>
+        </div>
+        <figcaption class="absolute inset-x-0 bottom-0 p-6 text-base font-semibold text-white">{{ item.caption }}</figcaption>
+      </figure>
+    {% endfor %}
+  </div>
+</section>

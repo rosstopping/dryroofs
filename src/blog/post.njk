@@ -1,0 +1,38 @@
+---
+layout: base.njk
+pagination:
+  data: posts
+  size: 1
+  alias: post
+permalink: "/blog/{{ post.slug }}/index.html"
+eleventyComputed:
+  title: "{{ post.title }}"
+  description: "{{ post.excerpt }}"
+---
+<section class="border-b border-stone-200 bg-white">
+  <div class="mx-auto max-w-4xl px-6 py-16 lg:px-8 lg:py-20">
+    <nav aria-label="Breadcrumb" class="text-sm text-slate-500">
+      <ol class="flex items-center gap-2">
+        <li><a href="/" class="hover:text-brand">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/blog/" class="hover:text-brand">Blog</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-slate-700">{{ post.title }}</li>
+      </ol>
+    </nav>
+    <p class="mt-8 text-sm font-semibold uppercase tracking-[0.24em] text-brand">{{ post.date }}</p>
+    <h1 class="mt-4 text-5xl text-slate-950">{{ post.title }}</h1>
+    <p class="mt-6 text-lg leading-8 text-slate-600">{{ post.excerpt }}</p>
+  </div>
+</section>
+
+<article class="mx-auto max-w-4xl px-6 py-20 lg:px-8">
+  <div class="rounded-[2rem] bg-stone-100 p-8 lg:p-12">
+    <div class="space-y-6 text-base leading-8 text-slate-700">
+      <p>{{ post.body }}</p>
+    </div>
+  </div>
+  <div class="mt-10">
+    <a href="/contact/" class="btn-primary">Speak to Dry Roofs</a>
+  </div>
+</article>
